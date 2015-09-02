@@ -16,13 +16,13 @@ namespace WebJob1
         public static void ProcessQueueMessage([QueueTrigger("queue")] string message, TextWriter log) {
             try {
                 var db = new Db();
-                db.Messages.Add(new Message {Body = "A " + message, ReceivedOn = DateTime.UtcNow});
+                db.Messages.Add(new Message {Body = "B " + message, ReceivedOn = DateTime.UtcNow});
                 db.SaveChanges();
             }
             catch (Exception e) {
                 log.WriteLine("Exception: " + e.Message);
             }
-            log.WriteLine("A:" + message);
+            log.WriteLine("B:" + message);
         }
     }
 
