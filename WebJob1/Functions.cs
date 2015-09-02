@@ -14,6 +14,7 @@ namespace WebJob1
         // This function will get triggered/executed when a new message is written 
         // on an Azure Queue called queue.
         public static void ProcessQueueMessage([QueueTrigger("queue")] string message, TextWriter log) {
+            Console.WriteLine("to console:" + message);
             try {
                 var db = new Db();
                 db.Messages.Add(new Message {Body = "C " + message, ReceivedOn = DateTime.UtcNow});
