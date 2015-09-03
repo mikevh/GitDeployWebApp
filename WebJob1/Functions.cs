@@ -17,13 +17,13 @@ namespace WebJob1
             Console.WriteLine("to console:" + message);
             try {
                 var db = new Db();
-                db.Messages.Add(new Message {Body = "C " + message, ReceivedOn = DateTime.UtcNow});
+                db.Messages.Add(new Message {Body = "D " + message, ReceivedOn = DateTime.UtcNow});
                 db.SaveChanges();
             }
             catch (Exception e) {
                 log.WriteLine("Exception: " + e.Message);
             }
-            log.WriteLine("C:" + message);
+            log.WriteLine("D:" + message);
         }
     }
 
